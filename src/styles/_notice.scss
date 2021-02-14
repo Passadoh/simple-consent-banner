@@ -1,0 +1,81 @@
+.cookie-notice {
+  position: fixed;
+  max-width: 410px;
+  background: $modalBackground;
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: 39px 41px;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+  z-index: 100;
+  right: -46rem;
+  bottom: 7%;
+
+  @include respond($md) {
+    margin: 20px auto;
+    right: -46rem;
+    left: 0;
+    bottom: 20px;
+    width: 65%;
+    padding: 29px 31px;
+  }
+
+  @include respond($sm) {
+    bottom: 5px;
+    padding: 19px 21px;
+    width: unset;
+  }
+
+  &.active {
+    opacity: 1;
+    right: 7%;
+    @include respond($md) {
+      right: 0px;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__paragraph {
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 156.57%;
+    padding-top: 25px;
+    color: $primary;
+    text-rendering: optimizelegibility;
+    @include respond($md) {
+      font-size: 14.7px;
+    }
+    @include respond($sm) {
+      font-size: 14.3px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 35px;
+
+    @include respond($sm) {
+      display: inline-flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    & > * {
+      justify-content: center;
+    }
+
+    & > *:not(:last-child) {
+    margin-right: 5px;
+
+      @include respond($sm) {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

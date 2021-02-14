@@ -1,0 +1,36 @@
+.cookie-notice .btn {
+  border-radius: 5px;
+  padding: 15px 35px;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.01em;
+  transition: background-color .2s ease-in-out;
+  @include respond($md) {
+    font-size: 14.7px;
+  }
+  @include respond($sm) {
+    font-size: 13.3px;
+  }
+
+  &:hover {
+    background: $buttonHover
+  }
+
+  &--primary {
+    background: $button;
+    color: $buttonText;
+  }
+
+  &--secondary {
+    color: $button;
+    border: 1px solid $button;
+
+    &:hover {
+      color: $buttonText;
+    }
+  }
+}

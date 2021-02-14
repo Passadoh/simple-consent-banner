@@ -1,0 +1,9 @@
+.cookie-notice .link {
+  cursor: pointer;
+  box-shadow: #D9BF65 0px -0.12em 0px 0px inset;
+  transition: box-shadow .2s ease-in-out, color .2s ease-in-out;
+    &:hover {
+    box-shadow: #D9BF65 0px -1.5em 0px 0px inset;
+    color: #FEFBF4;
+  }
+}

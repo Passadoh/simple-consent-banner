@@ -1,0 +1,21 @@
+$default-font-size: 1.6rem;
+
+$primary: #09192B;
+
+$button: $primary;
+$buttonHover: rgba(9, 25, 43, 0.93);
+$buttonText: #FEFBF4;
+$modalBackground: #FEFEFE;
+
+//screens
+$sm: 500px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1600px;
+
+@mixin respond($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
