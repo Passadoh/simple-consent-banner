@@ -5,19 +5,12 @@ import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
 import scss from 'rollup-plugin-scss'
 import {terser} from 'rollup-plugin-terser'
-import json from '@rollup/plugin-json';
-import replace from '@rollup/plugin-replace';
 import postcss from "postcss";
 import env from 'postcss-preset-env'
 import autoprefixer from "autoprefixer"
-import dotenv from 'dotenv'
 import pkg from './package.json';
 
 const svgr = require('@svgr/rollup').default
-
-dotenv.config({
-  path: `.env.${process.env.NODE_ENV || 'development'}`
-})
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -31,13 +24,8 @@ export default [
       sourcemap: true
     },
     plugins: [
-      replace({
-        'process.env.COOKIE_DOMAIN': JSON.stringify(process.env.COOKIE_DOMAIN),
-        'process.env.PRIVACY_PATH': JSON.stringify(process.env.PRIVACY_PATH),
-      }),
       resolve(),
       commonjs(),
-      json (),
       svgr({ babel: false }),
       dev && serve({contentBase: ['dist', 'static']}),
       dev && livereload(),
