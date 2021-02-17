@@ -4,7 +4,7 @@ import useCookie from "../hooks/useCookie"
 import CookieIcon from "./icons/cookie"
 import Content from "./content"
 
-const Notice = ({ content : { main }, cookieParams,setShowBanner}) => {
+const Notice = ({ content : { main }, cookieParams, setShowBanner}) => {
   const [_, setPreferences ] = useCookie("pref",
     "marketing=0"
   )
@@ -14,30 +14,19 @@ const Notice = ({ content : { main }, cookieParams,setShowBanner}) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setActive(true)
-    }, 2000)
+    }, 1000)
     return () => clearTimeout(timer)
   })
 
-  const options = {
-    expires: 0,
-    domain: 'localhost',
-    path: '/',
-    secure: true,
-    httpOnly: false,
-    maxAge: 15552000,
-    sameSite: 'none',
-    ...cookieParams
-  }
-
   const accept = () => {
-    setPreferences("marketing=1", options)
-    setShowBanner(0, options)
+    setPreferences("marketing=1", cookieParams)
+    setShowBanner(0, cookieParams)
     history.go(0)
   }
 
   const refuse = () => {
-    setPreferences("marketing=0", options)
-    setShowBanner(0, options)
+    setPreferences("marketing=0", cookieParams)
+    setShowBanner(0, cookieParams)
     history.go(0)
   }
 

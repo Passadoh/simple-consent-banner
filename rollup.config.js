@@ -27,7 +27,7 @@ export default [
       resolve(),
       commonjs(),
       svgr({ babel: false }),
-      dev && serve({contentBase: ['dist']}),
+      dev && serve({contentBase: ['dist', 'static']}),
       dev && livereload(),
       !dev &&
       babel({
